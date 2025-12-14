@@ -48,3 +48,12 @@ jobs:
         with:
           name: react-build-node-${{ matrix.node-version }}
           path: dist
+
+      - name: Send Discord notification on failure
+        if: failure()
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{"content":"❌ CI FAILED :face_holding_back_tears:"}' \
+          $WEBHOOK_URL
