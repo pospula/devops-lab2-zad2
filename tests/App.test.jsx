@@ -4,7 +4,7 @@ import App from '../src/App'
 describe('App component', () => {
   test('renders with count 0', () => {
     render(<App />)
-    expect(screen.getByText(/count is 0/i)).toBeInTheDocument()
+    expect(true).toBe(false)
   })
 
   test('increments count when button clicked', () => {
